@@ -5,4 +5,4 @@ st.subheader("Your Hub for New Ideas")
 
 st.file_uploader(label="Upload a PDF", type="pdf", accept_multiple_files=True)
 
-
+st.text_input(label="Chat with Nexy about your notes!")
