@@ -2,9 +2,11 @@ import streamlit as st
 import llm_man
 
 if 'LLM' not in st.session_state:
-    st.session_state.LLM = llm_man.OLLAMA(model_name="gemma3")
+    st.session_state.LLM = llm_man.OLLAMA(model_name="tinydolphin")
 if 'prompt' not in st.session_state:
     st.session_state.prompt = ''
+
+
 def send_prompt():
     response = st.session_state.LLM.predict(st.session_state.prompt)
     print(response)
