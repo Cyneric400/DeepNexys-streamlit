@@ -24,7 +24,6 @@ st.title("DeepNexys")
 st.subheader("Your Hub for New Ideas")
 
 
-st.file_uploader(label="Upload a PDF", type="pdf", accept_multiple_files=True)
 
 st.subheader("Chat with Nexy about your notes - now in a new, improved format!")
 for message in st.session_state.messages:
@@ -40,3 +39,6 @@ if prompt_input := st.chat_input("Send a message to Nexy", key="chat_msg"):
     with st.chat_message("assistant"):
         st.markdown(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
+
+
+st.file_uploader(label="Upload a PDF", type="pdf", accept_multiple_files=True)
