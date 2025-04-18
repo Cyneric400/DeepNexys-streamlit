@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install git
 RUN git clone https://github.com/Cyneric400/DeepNexys-streamlit.git
 WORKDIR /usr/server/DeepNexys-streamlit
 RUN python -m pip install -r requirements.txt
-RUN streamlit run app.py
+
+CMD["streamlit", "run", "app.py"]
 
 EXPOSE 8501
