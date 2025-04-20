@@ -16,13 +16,17 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4
-    
-    - name: Build the image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
+      
     - name: Login to Docker
       uses: docker/login-action@v3.4.0
       with:
          username: ${{ secrets.DCKR_USR }}
          password: ${{ secrets.DCKR_PAT }}
     
+    - name: Build & push image
+      uses: docker/build-push-action@v6.15.0
+      with:
+        file: Dockerfile
+        push: true
+        tags: ${{ secrets.DCKR_USR }}/deepnexys-streamlit:latest
+      
