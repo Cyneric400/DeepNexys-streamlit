@@ -14,6 +14,7 @@ jobs:
     environment: dock_integ
 
     steps:
+    - name: checkout
     - uses: actions/checkout@v4
     
     - name: Build the image
