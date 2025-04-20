@@ -31,5 +31,5 @@ jobs:
       with:
         file: Dockerfile
         push: true
-        tags: deepnexys-streamlit:$(date +%s)
+        tags: deepnexys-streamlit:latest
       
