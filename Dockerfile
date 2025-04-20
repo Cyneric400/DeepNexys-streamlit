@@ -1,7 +1,7 @@
 FROM python:latest
 LABEL authors="cyneric"
 
-ENTRYPOINT ["top", "-b"]
+#ENTRYPOINT ["top", "-b"]
 
 WORKDIR /usr/server
 RUN apt-get update && apt-get install git
