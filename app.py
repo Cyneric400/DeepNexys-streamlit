@@ -1,5 +1,6 @@
 import streamlit as st
 import llm_man
+from VTI64_db import dbman
 
 if 'LLM' not in st.session_state:
     st.session_state.LLM = llm_man.OLLAMA(model_name="gemma3")
@@ -9,6 +10,10 @@ if 'messages' not in st.session_state:
     st.session_state.messages = []
 #if 'chat_msg' not in st.session_state:
  #   st.session_state.chat_msg = ''
+
+def read_files():
+    for file in st.session_state.files:
+        dbman.add_uploaded_file(file)
 
 
 def send_prompt():
@@ -41,4 +46,4 @@ if prompt_input := st.chat_input("Send a message to Nexy", key="chat_msg"):
     st.session_state.messages.append({"role": "assistant", "content": response})
 
 
-st.file_uploader(label="Upload a PDF", type="pdf", accept_multiple_files=True)
+st.file_uploader(label="Upload a PDF", key="files", type="pdf", accept_multiple_files=True, on_change=read_files)
