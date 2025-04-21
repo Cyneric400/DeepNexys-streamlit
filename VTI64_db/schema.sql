@@ -7,7 +7,7 @@ CREATE TABLE User(
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Files(
+CREATE TABLE Documents(
     file_id INT,
     user_id INT,
     contents TEXT,

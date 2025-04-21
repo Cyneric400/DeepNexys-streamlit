@@ -1,7 +1,5 @@
-UPDATE Files SET user_id = 1 WHERE user_id = 0;
+UPDATE Documents SET user_id = 1;
 
-SELECT * FROM Files;
+SELECT * FROM Documents;
 
-UPDATE Files SET contents='flag{congratulations}' WHERE file_id = 0
-
-DELETE FROM Files WHERE file_id >= 2;
+DELETE FROM Documents WHERE file_id >= 1;
