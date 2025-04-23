@@ -6,7 +6,7 @@ from VTI64_db import dbman
 
 
 class OLLAMA:
-    def __init__(self, model_name, api_endpoint="http://localhost:11434/api/generate", **kwargs):
+    def __init__(self, model_name, api_endpoint="http://10.10.129.88:11434/api/generate", **kwargs):
         self.model_name = model_name
         self.api_endpoint = api_endpoint
         self.session = requests.Session()
