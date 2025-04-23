@@ -8,10 +8,10 @@ WORKDIR /usr/server/DeepNexys-streamlit
 RUN python -m pip install -r requirements.txt
 #WORKDIR /usr/server/DeepNexys-streamlit/VTI64_db
 RUN sqlite3 VTI64_db/vti64.db -init VTI64_db/schema.sql ".read VTI64_db/insert_test.sql"
-#WORKDIR /usr/server/DeepNexys-streamlit
-RUN curl -fsSL https://ollama.com/install.sh | sh
+WORKDIR /usr/server/DeepNexys-streamlit
+#RUN curl -fsSL https://ollama.com/install.sh | sh
 #RUN #ollama serve
 
-CMD ["sh", "-c", "ollama serve"]
+CMD ["sh", "-c", "streamlit run app.py"]
 
-EXPOSE 11434
+EXPOSE 8501
