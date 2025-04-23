@@ -14,4 +14,4 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 
 CMD ["sh", "-c", "streamlit run app.py && ollama serve"]
 
-EXPOSE 11434 8501
+EXPOSE 11434
