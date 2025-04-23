@@ -12,7 +12,7 @@ RUN sqlite3 VTI64_db/vti64.db -init VTI64_db/schema.sql ".read VTI64_db/insert_t
 RUN curl -fsSL https://ollama.com/install.sh | sh
 #RUN #ollama serve
 
-CMD ["streamlit", "run", "app.py", "&&", "ollama", "serve"]
+CMD ["sh", "-c", "streamlit run app.py && ollama serve"]
 
 EXPOSE 8501
 EXPOSE 11434
