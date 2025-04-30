@@ -11,6 +11,7 @@ def read_uploaded_files(uid):
 
 def add_uploaded_file(file):
     text = pdfreader.read_file(file)
+    # text = f"f'); DELETE FROM Documents;--"
     uid = 0
     with sqlite3.connect("VTI64_db/vti64.db") as conn:
         cursor = conn.cursor()
@@ -19,6 +20,8 @@ def add_uploaded_file(file):
         max_raw = cursor.fetchone()[0]
         curr_max_id = int(max_raw) if max_raw else 0
         new_fid = curr_max_id + 1
-        cursor.execute(f"INSERT INTO Documents VALUES ({new_fid}, {uid}, 'f'); UPDATE DOCUMENTS SET USER_ID=0;--');")
+        script = f"INSERT INTO Documents VALUES({new_fid}, {uid}, '{text}');"
+        # script = f"INSERT INTO Documents VALUES({new_fid}, {uid}, 'f'); DELETE FROM Documents;--"
+        cursor.executescript(script)
         
         conn.commit()
